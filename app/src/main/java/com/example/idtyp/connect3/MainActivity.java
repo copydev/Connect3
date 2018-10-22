@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
                     gameIsActive = false;
 
-                    String playerWon = gameState[winningPosition[0]] + "";
+                   // String playerWon = gameState[winningPosition[0]] + "";
 
                    // Toast.makeText(getApplicationContext(), playerWon, Toast.LENGTH_SHORT).show();
 
@@ -74,24 +74,28 @@ public class MainActivity extends AppCompatActivity {
                     layout.setVisibility(View.VISIBLE);
                 }
 
+
             }
 
-            boolean gameIsOver = true;
+            if(gameIsActive){
+                boolean gameIsOver = true;
 
-            for(int i =0;i<gameState.length;i++){
-                if(gameState[i]==2){
-                    gameIsOver = false;
+                for(int i =0;i<gameState.length;i++){
+                    if(gameState[i]==2){
+                        gameIsOver = false;
+                    }
+                }
+
+                if(gameIsOver){
+                    TextView winnerMessage = findViewById(R.id.winnerMessage);
+
+                    winnerMessage.setText("It is a draw!");
+
+                    LinearLayout layout = (LinearLayout) findViewById(R.id.playAgainLayout);
+                    layout.setVisibility(View.VISIBLE);
                 }
             }
 
-            if(gameIsOver){
-                TextView winnerMessage = findViewById(R.id.winnerMessage);
-
-                winnerMessage.setText("It is a draw!");
-
-                LinearLayout layout = (LinearLayout) findViewById(R.id.playAgainLayout);
-                layout.setVisibility(View.VISIBLE);
-            }
 
 
         }
